@@ -77,8 +77,8 @@ sudo rm -r packettracer
 
 # install libjpeg.so.8 (from my repo on 'openSUSE Build' made by the Graphics Project (openSUSE Factory Team))
 sudo $ins config-manager --add-repo "https://download.opensuse.org/repositories/home:GeoDerp:branches:graphics/"$os"/home:GeoDerp:branches:graphics.repo"
-##dnf remove libjpeg-turbo --noautoremove -y ## add if having issues with previous packadges
-##dnf remove libjpeg62-turbo --noautoremove -y ## add if having issues with previous packadges
+##$ins remove libjpeg-turbo --noautoremove -y ## add if having issues with previous packadges
+##$ins remove libjpeg62-turbo --noautoremove -y ## add if having issues with previous packadges
 sudo $ins install --enablerepo=home_GeoDerp_branches_graphics libjpeg-turbo libjpeg62-turbo -y #note if qt5(PacketTracer) dosnt find it, you can find libjpeg.so.8 manually and cp it over (EX. sudo cp /usr/lib/libjpeg.so.8 /opt/pt/bin/)
 
 #### add text in packettracerrun file
