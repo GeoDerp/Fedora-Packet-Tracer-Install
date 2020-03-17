@@ -79,7 +79,8 @@ sudo rm -r packettracer
 sudo $ins config-manager --add-repo "https://download.opensuse.org/repositories/home:GeoDerp:branches:graphics/"$os"/home:GeoDerp:branches:graphics.repo"
 ##$ins remove libjpeg-turbo --noautoremove -y ## add if having issues with previous packadges
 ##$ins remove libjpeg62-turbo --noautoremove -y ## add if having issues with previous packadges
-sudo $ins install --enablerepo=home_GeoDerp_branches_graphics libjpeg-turbo libjpeg62-turbo -y #note if qt5(PacketTracer) dosnt find it, you can find libjpeg.so.8 manually and cp it over (EX. sudo cp /usr/lib/libjpeg.so.8 /opt/pt/bin/)
+sudo $ins install --enablerepo=home_GeoDerp_branches_graphics libjpeg-turbo libjpeg62-turbo -y 
+#note if qt5(PacketTracer) dosnt find libjpeg.so.8 after install libjpeg-turbo, you can find libjpeg.so.8 manually and cp it over (EX. sudo cp /usr/lib/libjpeg.so.8 /opt/pt/bin/)
 
 #### add text in packettracerrun file
 sed '/3/ a export QT_QPA_PLATFORM=\"wayland;xcb\"' /opt/pt/packettracer > /tmp/packettracer
