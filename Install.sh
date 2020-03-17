@@ -15,10 +15,11 @@ then ins="zypper" && os=$NAME
 else echo "can't find distro name, assuming openSUSE" && upd="sudo zypper dup -y" && os=$NAME
 fi
 
+# Cisco Packet Tracer version (7.3.0 = 730)
+version=730
+
 # Download required rpm's
 sudo $ins install qt5-qtwebkit qt5-qtsvg qt5-qtscript libpng12 git qt5-qtwayland-devel	double-conversion
-
-version=730
 
 #get file from www.netacad.com
 wget {incert .deb here}
@@ -55,6 +56,7 @@ sudo gtk-update-icon-cache --force --ignore-theme-index /usr/share/icons/gnome
 sudo xdg-mime default cisco-ptsa7.desktop x-scheme-handler/pttp
 
 sudo ln -sf /opt/pt/packettracer /usr/local/bin/packettracer
+#create gnome .desktop file
 sudo cp /opt/pt/bin/Cisco-PacketTracer.desktop /usr/share/applications/
 
 # Add enviroment settings
@@ -73,10 +75,10 @@ cp libcrypto.so.1.0.0 /opt/pt/bin/
 cd ..
 sudo rm -r packettracer
 
-# install libjpeg.so.8 (from my repo on opensusu build made by the Graphics Project (opensuse team))
+# install libjpeg.so.8 (from my repo on 'openSUSE Build' made by the Graphics Project (openSUSE Factory Team))
 sudo $ins config-manager --add-repo "https://download.opensuse.org/repositories/home:GeoDerp:branches:graphics/"$os"/home:GeoDerp:branches:graphics.repo"
 sudo $ins install --enablerepo=home_GeoDerp_branches_graphics libjpeg-turbo -y #note if qt5(PacketTracer) dosnt find it, you can find libjpeg.so.8 manually and cp it over (EX. sudo cp /usr/lib/libjpeg.so.8 /opt/pt/bin/)
 
-#### add text in packettracer
+#### add text in packettracerrun file
 sed '/3/ a export QT_QPA_PLATFORM=\"wayland;xcb\"' /opt/pt/packettracer > /tmp/packettracer
 sudo cp /tmp/packettracer /opt/pt/packettracer && sudo rm /tmp/packettracer
