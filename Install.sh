@@ -74,8 +74,8 @@ cd ..
 sudo rm -r packettracer
 
 # install libjpeg.so.8 (from my repo on opensusu build made by the Graphics Project (opensuse team))
-dnf config-manager --add-repo "https://download.opensuse.org/repositories/home:GeoDerp:branches:graphics/"$os"/home:GeoDerp:branches:graphics.repo"
-dnf install libjpeg-turbo #note if qt5(PacketTracer) dosnt find it, you can find libjpeg.so.8 manually and cp it over (EX. sudo cp /usr/lib/libjpeg.so.8 /opt/pt/bin/)
+$ins config-manager --add-repo "https://download.opensuse.org/repositories/home:GeoDerp:branches:graphics/"$os"/home:GeoDerp:branches:graphics.repo"
+$ins install --enablerepo=home_GeoDerp_redflower libjpeg-turbo -y #note if qt5(PacketTracer) dosnt find it, you can find libjpeg.so.8 manually and cp it over (EX. sudo cp /usr/lib/libjpeg.so.8 /opt/pt/bin/)
 
 #### add text in packettracer
 sed '/3/ a export QT_QPA_PLATFORM=\"wayland;xcb\"' /opt/pt/packettracer > /tmp/packettracer
