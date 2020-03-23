@@ -22,13 +22,13 @@ version=730
 sudo $ins install qt5-qtwebkit qt5-qtsvg qt5-qtscript libpng12 git qt5-qtwayland-devel	double-conversion
 
 #get file from www.netacad.com
-wget {incert .deb here}
-https://www.netacad.com/portal/resources/file/aa38a51f-45bb-4eb1-89a0-01d961ae1432
+cd ~/Downloads
+wget {incert cisco downlaod .deb here} # or download .deb from prefered web browser and cd into your downloads dir (if's its not ~/Downlaods)
 
 #Folling code (to line 47) from [von Andreas Grupp](https://grupp-web.de/cms/2020/01/03/installation-of-packet-tracer-7-3-on-rpm-linux-systems-without-alien/)
 mkdir /tmp/PacketTracerInst
 cp "PacketTracer_"$version"_amd64.deb /tmp/PacketTracerInst"
-#rm "PacketTracer_"$version"_amd64.deb"
+#rm "PacketTracer_"$version"_amd64.deb" #to delete the file
 cd /tmp/PacketTracerInst
 ar -xv "PacketTracer_"$version"_amd64.deb"
 mkdir control
